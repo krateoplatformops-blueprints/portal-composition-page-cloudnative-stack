@@ -25,3 +25,4 @@ sources:
   - https://github.com/krateoplatformops-blueprints/portal-composition-page-generic
 annotations:
   krateoSupportedVersion: "2.6.0"
+  

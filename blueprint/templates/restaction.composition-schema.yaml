@@ -45,3 +45,25 @@ spec:
     verb: GET
     filter: >
       .getNotOrderedSchema.data["values.schema.json"]
+  - endpointRef:
+      name: github-api
+      namespace: {{ default "krateo-system" (default dict .Values.global).krateoNamespace }}
+    filter: |
+      .featuresFrontend.items | map((.name | sub("-feature$"; "")))
+    headers:
+    - 'Accept: application/vnd.github+json'
+    - 'X-GitHub-Api-Version: 2022-11-28'
+    name: featuresFrontend
+    path: /search/repositories?q=org:krateoplatformops-test+topic:feature+topic:frontend
+    verb: GET
+  - endpointRef:
+      name: github-api
+      namespace: {{ default "krateo-system" (default dict .Values.global).krateoNamespace }}
+    filter: |
+      .featuresBackend.items | map((.name | sub("-feature$"; "")))
+    headers:
+    - 'Accept: application/vnd.github+json'
+    - 'X-GitHub-Api-Version: 2022-11-28'
+    name: featuresBackend
+    path: /search/repositories?q=org:krateoplatformops-test+topic:feature+topic:backend
+    verb: GET

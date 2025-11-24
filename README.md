@@ -1,4 +1,4 @@
-# Add Blueprint to *Portal Composition Page*
+# Add Blueprint to *Portal Composition Page Cloudnative Stack*
 
 This repository contains a **Blueprint** designed for use with [Krateo PlatformOps](https://krateo.io), specifically targeting the **Composable Portal** feature.
 
