@@ -1,5 +1,5 @@
 apiVersion: v2
-name: portal-composition-page-generic
+name: portal-composition-page-cloudnative-stack
 description: A Blueprint for Krateo Composable Portal Composition page with a generic approach
 
 # A chart can be either an 'application' or a 'library' chart.
