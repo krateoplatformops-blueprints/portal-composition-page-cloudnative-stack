@@ -8,6 +8,19 @@ spec:
   widgetData:
     schema: {}
     submitActionId: update-action-from-schema
+    objectFields:
+      - path: frontend.deployments
+        displayField: name
+      - path: backend.deployments
+        displayField: name
+      - path: kafka.topics
+        displayField: topicName
+      - path: hazelcast.clusters
+        displayField: name
+      - path: mongodb.instances
+        displayField: clusterName
+      - path: cloudnativepg.instances
+        displayField: databaseName
     actions:
       rest:
         - id: update-action-from-schema
@@ -26,7 +39,7 @@ spec:
   widgetDataTemplate:
     - forPath: schema
       expression: >
-        ${ import "custom" as c; c::update_schema_defaults(.) }
+        ${ import "custom" as c; c::update_string_schema_defaults(.getNotOrderedSchema;.getCompositionSpec;{frontend: { features: .featuresFrontend },backend: { features: .featuresBackend }})}
   resourcesRefs:
     items:
     - id: composition-to-patch
